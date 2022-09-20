@@ -6,7 +6,6 @@ const router = express.Router();
 router.use(express.json());
 router.use(express.urlencoded({extended:true}));
 
-
 router.get("/",async(req,res)=>{
     const data = await contact.findOne({userId:req.user})
     console.log(data.contactArray)
