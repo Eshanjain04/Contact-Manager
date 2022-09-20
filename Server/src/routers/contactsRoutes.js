@@ -6,6 +6,13 @@ const router = express.Router();
 router.use(express.json());
 router.use(express.urlencoded({extended:true}));
 
+
+router.get("/",async(req,res)=>{
+    const data = await contact.findOne({userId:req.user})
+    console.log(data.contactArray)
+    res.json({data:data.contactArray})
+})
+
 router.delete("/:phoneNumbers",async(req,res)=>{
     try{
         const phoneNumbers = req.params.phoneNumbers.split(",").map(Number);
