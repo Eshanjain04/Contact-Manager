@@ -13,6 +13,7 @@ router.get("/",async(req,res)=>{
     res.json({data:data.contactArray})
 })
 
+
 router.delete("/:phoneNumbers",async(req,res)=>{
     try{
         const phoneNumbers = req.params.phoneNumbers.split(",").map(Number);
