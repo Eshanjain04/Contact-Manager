@@ -6,6 +6,8 @@ const jwt = require("jsonwebtoken");
 const user = require("./models/users");
 require("dotenv").config();
 const secret = process.env.SECRET;
+const registerRoutes = require("./routers/registerRoute")
+
 
 app.use("/login",loginRoutes);
 
@@ -25,5 +27,6 @@ app.use("/contact",async (req,res,next)=>{
 })
 
 app.use("/contact",contactRoutes);
+app.use("/register",registerRoutes)
 
 module.exports = app;
