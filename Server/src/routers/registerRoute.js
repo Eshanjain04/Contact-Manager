@@ -4,6 +4,7 @@ const router = express.Router()
 const bcrypt = require("bcrypt")
 router.use(express.json())
 
+
 router.post("/",async(req,res)=>{
     const password = req.body.password;
     const cnfPassword = req.body.cnfPassword;

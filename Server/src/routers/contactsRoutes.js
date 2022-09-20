@@ -18,6 +18,13 @@ var upload = multer( { storage: storage } );
 router.use(express.json());
 router.use(express.urlencoded({extended:true}));
 
+router.get("/",async(req,res)=>{
+    const data = await contact.findOne({userId:req.user})
+    console.log(data.contactArray)
+    res.json({data:data.contactArray})
+})
+
+
 router.post('/',upload.single("file"),async(req,res)=>{
     try{
         csv()
