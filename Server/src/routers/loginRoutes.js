@@ -21,7 +21,7 @@ router.post("/",async(req,res)=>{
                 data: userData._id
               }, secret);
             res.status(200).json({
-                Status:"Success",
+                Status:"Successful",
                 token:token
             })
         }else{
