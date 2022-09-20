@@ -3,6 +3,8 @@ mongoose.pluralize(null);
 const Schema = mongoose.Schema;
 
 const contactSchema = new Schema({
+    contactArray : [{
+    
     name:{type:String,required:true},
     designation:{type:String,required:true},
     company:{type:String,required:true},
@@ -10,6 +12,7 @@ const contactSchema = new Schema({
     email:{type:String,required:true},
     phoneNumber:{type:Number,required:true},
     country:{type:String,required:true},
+    }],
     userId:{type:Schema.Types.ObjectId,ref:"user"},
 });
 
