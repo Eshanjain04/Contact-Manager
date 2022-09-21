@@ -4,6 +4,7 @@ const contact = require("../models/contact");
 const router = express.Router();
 const csv = require("csvtojson")
 const multer = require("multer")
+
 var storage = multer.diskStorage(
     {
         destination: 'src/uploads',
@@ -14,14 +15,19 @@ var storage = multer.diskStorage(
         }
     }
 );
+
 var upload = multer( { storage: storage } );
 router.use(express.json());
 router.use(express.urlencoded({extended:true}));
 
 router.get("/",async(req,res)=>{
     const data = await contact.findOne({userId:req.user})
-    console.log(data.contactArray)
-    res.json({data:data.contactArray})
+
+    if(data!=null){
+        res.json({data:data.contactArray})
+    }else{
+        res.json({data:[]})
+    }
 })
 
 
@@ -37,7 +43,8 @@ router.post('/',upload.single("file"),async(req,res)=>{
             });
             res.status(200).json({status:"Success"})
         })
-    }catch(e){
+    }
+    catch(e){
         res.status(400).json({status:"failed"})
     }
    
