@@ -43,7 +43,6 @@ router.post('/',upload.single("file"),async(req,res)=>{
     catch(e){
         res.status(400).json({status:"failed"})
     }
-   
 })
 
 router.delete("/:phoneNumbers",async(req,res)=>{
