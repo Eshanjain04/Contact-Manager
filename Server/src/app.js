@@ -7,6 +7,8 @@ const user = require("./models/users");
 require("dotenv").config();
 const secret = process.env.SECRET;
 const registerRoutes = require("./routers/registerRoute")
+const cors = require("cors");
+app.use(cors())
 
 
 app.use("/login",loginRoutes);

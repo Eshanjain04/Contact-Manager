@@ -27,7 +27,7 @@ router.post("/",async(req,res)=>{
         }else{
             res.status(400).json({
                 status:"failed",
-                message:"password doesnot match"
+                message:"Wrong Password"
             })
         }
     }else{
