@@ -16,7 +16,7 @@ router.post("/",async(req,res)=>{
         mailid:req.body.mailid,
         password:hash
     })
-    res.send("Success")
+    res.status(200).json({status:"Success"});
 })
 
 
