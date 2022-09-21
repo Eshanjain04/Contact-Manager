@@ -4,7 +4,7 @@ import "../CSS/signup.css";
 const SignUp = () => {
     const[mailid ,setmailid] = useState("");
     const[password ,setPassword] = useState("");
-    const[cnfpassword ,setCnfPassword] = useState("");
+    const[cnfPassword ,setCnfPassword] = useState("");
 
     const loginUser = async (e)=>{
         e.preventDefault();
@@ -14,8 +14,7 @@ const SignUp = () => {
                 "Content-Type":"application/json",
                 "Accept":"application/json",
             },
-            body:JSON.stringify({mailid,password,cnfpassword})
-
+            body:JSON.stringify({mailid,password,cnfPassword})
         })
 
         const data = await response.json();
@@ -25,7 +24,8 @@ const SignUp = () => {
 			localStorage.setItem('token', data.token)
 			alert('Account Created')
 			window.location.href = '/'
-		} else {
+		}
+        else {
 			alert(data.message)
 		}
     }

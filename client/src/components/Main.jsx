@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { decodeToken } from "react-jwt";
 import { useEffect,useState } from 'react';
 import Sidebar from"../components/SideBar";
+import Header from '../components/header';
 
 const Main = () => {
     const [data,setData] = useState([])
@@ -38,6 +39,7 @@ const Main = () => {
   return (
     <div>
         <Sidebar/>
+        <Header/>
     </div>
   )
 }

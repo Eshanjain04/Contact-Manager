@@ -1,0 +1,94 @@
+
+*{
+    margin: 0;
+    border: 0;
+  }
+  
+  .modal{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(196, 192, 192);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Titillium Web', sans-serif;
+  }
+  
+  .modal_child{
+    height: 20%;
+    width: 30%;
+    background-color: rgb(107, 103, 103);
+  }
+  
+  .main{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+  }
+  .header-parent{
+    display: flex;
+    width: 80%;
+    height: 10%;
+    /* justify-content: space-around; */
+    align-items: center;
+  }
+  .header-title{
+    color: #454545;
+    font-size: 32px;
+    font-weight: 600;
+    margin-left: 3%;
+    width: 30%;
+  }
+  .search-input-div{
+    margin-right: 10%;
+    margin-left: 15%;
+    display: flex;
+    width: 45%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .search-input-div2{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8%;
+  }
+  .search-input{
+    height: 50%;
+    width: 100%;
+    background-color: #F2F2F2;
+  }
+  
+  .user_profile-div{
+    display: flex;
+    align-items: center;
+    width: 20%;
+  }
+  .profile-image{
+    width: 30%;
+  }
+  
+  .profile-flex >:first-child{
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .profile-flex >:nth-child(2){
+    font-size: 14px;
+    font-weight: lighter;
+  }
+  .form-flex{
+    display: flex;
+    background-color: #F2F2F2;
+    height: 50%;
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+  }
+  .bc{
+    background-color: #F2F2F2;
+    height: 51%;
+    width: 20%;
+  }
