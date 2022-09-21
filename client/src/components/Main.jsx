@@ -19,6 +19,7 @@ const Main = () => {
 
     const contacts = await req.json();
       console.log(contacts.data);
+      setData(contacts.data);
     }
 
     useEffect(() => {
@@ -35,11 +36,13 @@ const Main = () => {
       }else{
         navigate("/signin")
       }
-    }, [])
+    }, [navigate])
   return (
     <div>
-        <Sidebar/>
-        <Header/>
+        <div className="wrapper modal">
+            <Sidebar/>
+            <Header data={data}/>
+        </div>
     </div>
   )
 }
