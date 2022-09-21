@@ -15,7 +15,6 @@ const SignUp = () => {
                 "Accept":"application/json",
             },
             body:JSON.stringify({mailid,password,cnfPassword})
-
         })
 
         const data = await response.json();
@@ -25,7 +24,8 @@ const SignUp = () => {
 			localStorage.setItem('token', data.token)
 			alert('Account Created')
 			window.location.href = '/'
-		} else {
+		}
+        else {
 			alert(data.message)
 		}
     }
