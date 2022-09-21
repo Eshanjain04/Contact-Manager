@@ -22,8 +22,12 @@ router.use(express.urlencoded({extended:true}));
 
 router.get("/",async(req,res)=>{
     const data = await contact.findOne({userId:req.user})
-    console.log(data.contactArray)
-    res.json({data:data.contactArray})
+
+    if(data!=null){
+        res.json({data:data.contactArray})
+    }else{
+        res.json({data:[]})
+    }
 })
 
 
