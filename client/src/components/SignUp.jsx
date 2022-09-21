@@ -35,7 +35,7 @@ const SignUp = () => {
         <p>Create new account</p>
         <div className='login-container'>
             <form method="post">
-                <input onChange={(e)=>setmailid(e.target.value)} type="text" name="mailid" id="mailid" placeholder='User ID'/>
+                <input onChange={(e)=>setmailid(e.target.value)} type="email" name="mailid" id="mailid" placeholder='User ID'/>
                 <input  onChange={(e)=>setPassword(e.target.value)} type="password" name="password" id="password" placeholder='Password'/>
                 <input  onChange={(e)=>setCnfPassword(e.target.value)} type="password" name="password" id="password" placeholder='Confirm Password'/>
 
