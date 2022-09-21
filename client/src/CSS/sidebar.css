@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+}
+
+.sidebar-container{
+    position: relative;
+    width: 13%;
+    height: 100%;
+    background-color: #CEF3FF;
+    padding: 28px;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.logo{
+    margin-bottom: 52px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 61px;
+/* identical to box height */
+    color: #0884FF;
+    cursor: pointer;
+}
+
+.totalcontacts{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12vw;
+    height: 65px;
+    background: #2DA5FC;
+    border-radius: 6px;
+    gap: 10px;
+}
+
+.totalcontacts label{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+
+    color: #FFFFFF;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.totalcontacts .vertical-line{
+    width: 0px;
+    height: 32px;
+    border: 2px solid #FFFFFF;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.contact-icon{
+    font-size: 20px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+/* Dashboard Styling */
+.dashboard{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 11px;
+    padding-left: 12px;
+    margin-bottom: 25px;
+}
+
+.dashboard label{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    cursor: pointer;
+}
+
+.dashboard .dashboard-icon{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Logout Styling */
+.logout-container{
+    padding-left: 12px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: #000000;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap:5px;
+    bottom: 10px;
+    margin-top: 408px;
+}
+
+.logout-logo{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logout-logo:hover, .logout-container label:hover{
+    cursor: pointer;
+}
+
