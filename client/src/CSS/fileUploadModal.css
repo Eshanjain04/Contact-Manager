@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap:15px;
 } 
 
 .dropzone-container{
@@ -14,7 +15,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap:30px
+    gap:30px;
 }
 
 .dropArea h1{
@@ -41,9 +42,23 @@
     color: #FFFFFF;
 }
 
+.dropzone-container button:nth-of-type(2){
+    width: 124px;
+    height: 34px;
+    font-weight: 400;
+    font-size: 20px;
+    background: #ffffff;
+    border-radius: 5px;
+    color: #000000;
+}
+
 .dropzone-container button:hover{
     cursor: pointer;
     background-color: #217ec1;
+}
+
+.dropzone-container button:nth-of-type(2):hover{
+    background-color: #ffffff;
 }
 
 .dropArea .upload-icon-container{

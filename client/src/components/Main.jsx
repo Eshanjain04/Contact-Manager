@@ -6,12 +6,14 @@ import Sidebar from"../components/SideBar";
 import Header from '../components/header';
 import FileUploadModal from './FileUploadModal';
 import "../CSS/main.css";
+import DeleteModal from './DeleteModal';
 
 const Main = () => {
     const [data,setData] = useState([])
     const [searchItem,setSearchItem] = useState({})
     const navigate = useNavigate();
-    const [isOpen,setIsOpen] = useState(false);
+    const [isOpenFile,setIsOpenFile] = useState(false);
+    const [isOpenDelete,setIsOpenDelete] = useState(true);
     const handleSearchInput = (childData)=>{
         console.log(childData);
         setSearchItem(childData)
@@ -45,13 +47,16 @@ const Main = () => {
         navigate("/signin")
       }
     }, [navigate])
+
+    const deleteContacts = ["632c0d27a1cc334266e31c36"]
   return (
     <div>
         <div className="wrapper modal">
             <Sidebar/>
             <div className="main-area">
                 <Header data={data} parentCallback = {handleSearchInput}/>
-                <FileUploadModal isOpen = {isOpen} onClose = {()=>setIsOpen(false)}/>
+                <FileUploadModal isOpenFile = {isOpenFile} onClose = {()=>setIsOpenFile(false)}/>
+                <DeleteModal isOpenDelete = {isOpenDelete} onCloseDelete = {()=>setIsOpenDelete(false)} deleteContacts = {deleteContacts}/>
             </div>
         </div>
     </div>

@@ -5,7 +5,7 @@ import {FaFileImport} from "react-icons/fa"
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-const FileUploadModal = ({isOpen,onClose}) => {
+const FileUploadModal = ({isOpenFile,onClose}) => {
     const [para,setPara] = useState("Drag and Drop CSV file to Upload")
     const data = new FormData();
     const {getRootProps, getInputProps} = useDropzone({
@@ -34,7 +34,7 @@ const FileUploadModal = ({isOpen,onClose}) => {
     useEffect(()=>{
         setPara("Drag and Drop a CSV file to Upload")
     },[])
-    if(!isOpen)return null;
+    if(!isOpenFile)return null;
   return (
     <div className='dropzone-container modalContainer'>
         <div className="dropArea" {...getRootProps()}>
