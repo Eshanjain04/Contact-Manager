@@ -4,10 +4,18 @@ import { decodeToken } from "react-jwt";
 import { useEffect,useState } from 'react';
 import Sidebar from"../components/SideBar";
 import Header from '../components/header';
+import FileUploadModal from './FileUploadModal';
+import "../CSS/main.css";
 
 const Main = () => {
     const [data,setData] = useState([])
+    const [searchItem,setSearchItem] = useState({})
     const navigate = useNavigate();
+    const [isOpen,setIsOpen] = useState(false);
+    const handleSearchInput = (childData)=>{
+        console.log(childData);
+        setSearchItem(childData)
+    }
     
     const populateContacts = async ()=>{
       const req = await fetch('http://localhost:3050/contact', {
@@ -41,7 +49,10 @@ const Main = () => {
     <div>
         <div className="wrapper modal">
             <Sidebar/>
-            <Header data={data}/>
+            <div className="main-area">
+                <Header data={data} parentCallback = {handleSearchInput}/>
+                <FileUploadModal isOpen = {isOpen} onClose = {()=>setIsOpen(false)}/>
+            </div>
         </div>
     </div>
   )
