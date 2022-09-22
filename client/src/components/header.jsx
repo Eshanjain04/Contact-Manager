@@ -4,13 +4,17 @@ import {AiOutlineSearch} from "react-icons/ai"
 import {TiArrowUnsorted} from "react-icons/ti"
 import { useState } from "react";
 
-function Header({data}){
+function Header({data,parentCallback}){
     const [value,setValue] = useState("");
     const onSearch = (searchTerm) => {
-        setValue(searchTerm);
         // our api to fetch the search result
-        setValue(searchTerm)
-        console.log("search ", searchTerm);
+        setValue(searchTerm);
+        for(let i=0;i<data.length;i++){
+            if(data[i].email===searchTerm){
+                parentCallback(data[i]);
+                return;
+            }
+        }
       };
 
     return(
@@ -18,7 +22,7 @@ function Header({data}){
             <div className="header-parent">
                 <div className="header-title">Total Contacts</div>
                 <div className="search-input-div">
-                    <form className="search-input-div2" action="http://localhost:8080/post" method="POST">
+                    <form className="search-input-div2" method="POST">
                         <div className="form-flex"><AiOutlineSearch className="search-button" onClick={() => onSearch(value)}/></div>
                         <input onChange={e=>setValue(e.target.value)} className="search-input" value={value} type="email" placeholder="Search by Email Id...."/>
                     </form>
