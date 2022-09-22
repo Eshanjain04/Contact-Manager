@@ -5,6 +5,9 @@ const router = express.Router();
 const csv = require("csvtojson")
 const multer = require("multer")
 
+router.use(express.json());
+router.use(express.urlencoded({extended:true}));
+
 var storage = multer.diskStorage(
     {
         destination: 'src/uploads',
@@ -17,8 +20,6 @@ var storage = multer.diskStorage(
 );
 
 var upload = multer( { storage: storage } );
-router.use(express.json());
-router.use(express.urlencoded({extended:true}));
 
 router.get("/",async(req,res)=>{
     const data = await contact.findOne({userId:req.user})
@@ -31,16 +32,26 @@ router.get("/",async(req,res)=>{
 })
 
 
-router.post('/',upload.single("file"),async(req,res)=>{
+router.post('/',upload.single("csv"),async(req,res)=>{
     try{
         csv()
         .fromFile(req.file.path)
         .then(async(jsonObj)=>{
             console.log(jsonObj)
-            await contact.create({
-                contactArray:jsonObj,
-                userId:req.user
-            });
+            const userData = await contact.findOne({userId:req.user});
+            if(!userData){
+                console.log("user not found");
+                await contact.create({
+                    contactArray:jsonObj,
+                    userId:req.user
+                });
+            }else{
+                console.log("user found");
+                for(let i=0;i<jsonObj.length;i++){
+                    userData.contactArray.push(jsonObj[i]);
+                }
+                await contact.updateOne({userId:req.user},{contactArray:userData.contactArray});
+            }
             res.status(200).json({status:"Success"})
         })
     }

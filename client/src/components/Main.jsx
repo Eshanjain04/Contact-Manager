@@ -7,10 +7,18 @@ import Header from '../components/header';
 import Table from '../components/table';
 import Pages from '../components/pages';
 import MiddleBar from '../components/middlebar';
+import FileUploadModal from './FileUploadModal';
+import "../CSS/main.css";
 
 const Main = () => {
     const [data,setData] = useState([])
+    const [searchItem,setSearchItem] = useState({})
     const navigate = useNavigate();
+    const [isOpen,setIsOpen] = useState(false);
+    const handleSearchInput = (childData)=>{
+        console.log(childData);
+        setSearchItem(childData)
+    }
     
     const populateContacts = async ()=>{
       const req = await fetch('http://localhost:3050/contact', {
@@ -40,17 +48,15 @@ const Main = () => {
       }
     }, [navigate])
   return (
-    <div>
         <div className="wrapper modal">
             <Sidebar/>
-            <div className='left-side'>
-            <Header data=
-             {data}/>
+            <div className='main-area left-side'>
+            <Header data={data} parentCallback = {handleSearchInput}/>
+                <FileUploadModal isOpen = {isOpen} onClose = {()=>setIsOpen(false)}/>
             <MiddleBar/>
             {
             data.length>0?<Pages data ={data}/> :<p>Loading....</p>
             }
-            </div>
         </div>
     </div>
   )
