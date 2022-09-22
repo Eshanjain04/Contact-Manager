@@ -4,6 +4,9 @@ import { decodeToken } from "react-jwt";
 import { useEffect,useState } from 'react';
 import Sidebar from"../components/SideBar";
 import Header from '../components/header';
+import Table from '../components/table';
+import Pages from '../components/pages';
+import MiddleBar from '../components/middlebar';
 
 const Main = () => {
     const [data,setData] = useState([])
@@ -21,7 +24,6 @@ const Main = () => {
       console.log(contacts.data);
       setData(contacts.data);
     }
-
     useEffect(() => {
       const token = localStorage.getItem('token')
       if (token) {
@@ -41,7 +43,14 @@ const Main = () => {
     <div>
         <div className="wrapper modal">
             <Sidebar/>
-            <Header data={data}/>
+            <div className='left-side'>
+            <Header data=
+             {data}/>
+            <MiddleBar/>
+            {
+            data.length>0?<Pages data ={data}/> :<p>Loading....</p>
+            }
+            </div>
         </div>
     </div>
   )

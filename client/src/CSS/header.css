@@ -11,6 +11,11 @@
     font-family: 'Titillium Web', sans-serif;
   }
   
+  .left-side{
+    height: 100%;
+    width: 100%;
+  }
+
   .modal_child{
     height: 20%;
     width: 30%;
@@ -29,6 +34,7 @@
     /* justify-content: space-around; */
     align-items: center;
     border-bottom: 1px solid #dadada;
+    margin-bottom: 1%;
   }
   .header-title{
     color: #454545;
