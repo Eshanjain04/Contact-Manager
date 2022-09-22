@@ -10,11 +10,10 @@ const SideBar = () => {
     const logout = ()=>{
         localStorage.clear();
         navigate("/signin")
-
     }
   return (
     <>
-            <div className='sidebar-container'>
+        <div className='sidebar-container'>
         <div className="logo">
             <h1>Logo</h1>
         </div>

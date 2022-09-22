@@ -17,7 +17,6 @@ const SignIn = () => {
             body:JSON.stringify({mailid,password})
 
         })
-
         const data = await response.json();
         console.log(data.token);
 
