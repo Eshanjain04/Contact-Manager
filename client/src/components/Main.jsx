@@ -4,7 +4,6 @@ import { decodeToken } from "react-jwt";
 import { useEffect,useState } from 'react';
 import Sidebar from"../components/SideBar";
 import Header from '../components/header';
-import Table from '../components/table';
 import Pages from '../components/pages';
 import MiddleBar from '../components/middlebar';
 import FileUploadModal from './FileUploadModal';
@@ -16,7 +15,7 @@ const Main = () => {
     const [searchItem,setSearchItem] = useState({})
     const navigate = useNavigate();
     const [isOpenFile,setIsOpenFile] = useState(false);
-    const [isOpenDelete,setIsOpenDelete] = useState(true);
+    const [isOpenDelete,setIsOpenDelete] = useState(false);
     const handleSearchInput = (childData)=>{
         console.log(childData);
         setSearchItem(childData)
@@ -56,7 +55,8 @@ const Main = () => {
             <Sidebar/>
             <div className='main-area left-side'>
             <Header data={data} parentCallback = {handleSearchInput}/>
-                <FileUploadModal isOpen = {isOpen} onClose = {()=>setIsOpen(false)}/>
+                <FileUploadModal isOpenFile = {isOpenFile} onClose = {()=>setIsOpenFile(false)}/>
+                <DeleteModal isOpenDelete={isOpenDelete} onCloseDelete = {()=>setIsOpenDelete(false)} deleteContacts={deleteContacts}/>
             <MiddleBar/>
             {
             data.length>0?<Pages data ={data}/> :<p>Loading....</p>

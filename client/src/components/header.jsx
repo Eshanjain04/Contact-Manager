@@ -1,7 +1,6 @@
 import React from "react";
 import "../CSS/header.css"; 
 import {AiOutlineSearch} from "react-icons/ai"
-import {TiArrowUnsorted} from "react-icons/ti"
 import { useState } from "react";
 
 function Header({data,parentCallback}){

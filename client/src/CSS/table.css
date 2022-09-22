@@ -96,9 +96,9 @@
 
 .table{
     border-collapse: collapse;
-    top: 23%;
+    top: 24%;
     margin-left: 5%;
-    height: 64%;
+    height: 62%;
     width: 74.7%;
     position: fixed;
     border: none;
@@ -113,6 +113,8 @@ th{
 tr{
     border-radius: 10px;
 }
+
+
 th > *{
     display: flex;
     justify-content: space-between;

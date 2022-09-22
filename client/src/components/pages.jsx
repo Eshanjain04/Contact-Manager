@@ -9,7 +9,7 @@ import {FaSort} from "react-icons/fa"
 function Pages({data}){
     const [totalPages,startPageIndex,endPageIndex,
         currentPageIndex,//eslint-disable-line
-    displayPage] = usePagination(4,data.length)
+    displayPage] = usePagination(3,data.length)
     return(
         <>
         <div>
@@ -94,12 +94,11 @@ function Pages({data}){
             (()=>{
                 const displayPosts = []
                 console.log(endPageIndex)
-                // id={`${data[i]._id}`}
 
                 for(let i = startPageIndex;i<=endPageIndex;i++){
                     console.log("ran"+i+"times")
                     displayPosts.push(
-                    <tr >
+                    <tr className="second-row" id={`${data[i]._id}`}>
                         <td style={{width:"150px"}}>
                                 <div className="td-name">
                                     <div><input className="checky" type="checkbox"/></div>
