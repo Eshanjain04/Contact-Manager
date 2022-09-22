@@ -4,6 +4,9 @@ import { decodeToken } from "react-jwt";
 import { useEffect,useState } from 'react';
 import Sidebar from"../components/SideBar";
 import Header from '../components/header';
+import Table from '../components/table';
+import Pages from '../components/pages';
+import MiddleBar from '../components/middlebar';
 import FileUploadModal from './FileUploadModal';
 import "../CSS/main.css";
 
@@ -29,7 +32,6 @@ const Main = () => {
       console.log(contacts.data);
       setData(contacts.data);
     }
-
     useEffect(() => {
       const token = localStorage.getItem('token')
       if (token) {
@@ -46,13 +48,15 @@ const Main = () => {
       }
     }, [navigate])
   return (
-    <div>
         <div className="wrapper modal">
             <Sidebar/>
-            <div className="main-area">
-                <Header data={data} parentCallback = {handleSearchInput}/>
+            <div className='main-area left-side'>
+            <Header data={data} parentCallback = {handleSearchInput}/>
                 <FileUploadModal isOpen = {isOpen} onClose = {()=>setIsOpen(false)}/>
-            </div>
+            <MiddleBar/>
+            {
+            data.length>0?<Pages data ={data}/> :<p>Loading....</p>
+            }
         </div>
     </div>
   )

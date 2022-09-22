@@ -1,0 +1,207 @@
+.main-table{
+    height: 87%;
+    width: 100%;
+    /* background-color: lightblue; */
+    /* background-color:lightgoldenrodyellow ; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-table-2{
+    height: 90%;
+    width:90%;
+    background-color:#FBFBFB ;
+    display: flex;
+    justify-content: space-between;
+}
+.main-table-2>*> *{
+    margin-top: 5%;
+    background-color: white;
+}
+
+.table-left-icons{
+    display: flex;
+    height: 10%;
+}
+
+.date-div{
+    background-color: white;
+    /* border: 1px solid lightgray; */
+    border-radius: 7px;
+    display:flex; 
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 25px;
+    background-color: white;
+    height: 50%;
+    justify-content: center;
+    margin-top: 20px;
+
+}
+
+
+.filter-div{
+    display: flex;
+    /* border: 1px solid lightgray; */
+    border-radius: 7px;
+    cursor: pointer;
+    align-items: center;
+    height: 50%;
+    justify-content: center;
+    margin-top: 20px;
+
+}
+
+.table-right-icons{
+    display: flex;
+    height: 10%;
+
+}
+
+.delete-div{
+    /* border: 1px solid lightgray; */
+    border-radius: 7px;
+    height: 50%;
+    display:flex; 
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.import-div{
+    /* border: 1px solid lightgray; */
+    border-radius: 7px;
+    height: 50%;
+    display:flex; 
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    justify-content: center;
+
+}
+
+.export-div{
+    /* border: 1px solid lightgray; */
+    border-radius: 7px;
+    height: 50%;
+    display:flex; 
+    align-items: center;
+    /* margin:0 5px 0 5px */
+    margin-left: 5px;
+    margin-right: 20px;
+    justify-content: center;
+
+}
+
+
+.table{
+    border-collapse: collapse;
+    top: 23%;
+    margin-left: 5%;
+    height: 64%;
+    width: 74.7%;
+    position: fixed;
+    border: none;
+    border-radius: 10px;
+}
+th{
+    background-color: #B2DFFF;
+    /* border-radius: 10px; */
+    height: 10%;
+}
+
+tr{
+    border-radius: 10px;
+}
+th > *{
+    display: flex;
+    justify-content: space-between;
+}
+
+.t-name{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10%;
+}
+
+.t-name > :first-child{
+    margin-right: 20%;
+}
+
+.t-designation{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.t-designation> :nth-child(2){
+    margin-left: 5px;
+}
+
+tr:nth-child(even){
+    background-color: #B2DFFF4F;
+}
+.pagination{
+    position: fixed;
+    bottom: 4%;
+    right: 4%;
+}
+
+.line{
+    text-align: end;
+}
+
+.checky{
+    width: 15px;
+    height: 15px;
+}
+
+.checky[type=checkbox]{
+    accent-color: #2DA5FC;
+}
+
+td:first-child,
+th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+td:last-child,
+th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.margin-designation{
+    margin-left: 10%;
+}
+
+.td-name{
+    display: flex;
+}
+
+.td-name> :first-child{
+    margin-left: 10%;
+}
+.td-name> :nth-child(2){
+    margin-left: 9%;
+}
+.td-value{
+    margin-left: 5%;
+}
+
+.t-email{
+    margin-left: 5%;
+}
+
+.button-div{
+    background: #FFFFFF;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 120px;
+    /* height: 41px; */
+
+}
+
+.button-div:hover{
+    cursor: pointer;
+    background-color: #dddddd;
+}
