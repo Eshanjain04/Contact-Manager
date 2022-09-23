@@ -49,7 +49,7 @@ function Pages({data,getIds}){
                         </div>
                         <div>
                             <div className="t-designation">
-                                <div><FaSort/></div>
+                                <div><FaSort style={{marginTop:"4px"}}/></div>
                                 <div>|</div>
                             </div>
                         </div>
@@ -62,7 +62,7 @@ function Pages({data,getIds}){
                         </div>
                         <div>
                             <div className="t-designation">
-                                <div><FaSort/></div>
+                                <div><FaSort style={{marginTop:"4px"}}/></div>
                                 <div>|</div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@ function Pages({data,getIds}){
                         </div>
                         <div>
                             <div className="t-designation">
-                                <div><FaSort/></div>
+                                <div><FaSort style={{marginTop:"4px"}}/></div>
                                 <div>|</div>
                             </div>
                         </div>
@@ -107,9 +107,68 @@ function Pages({data,getIds}){
             </tr>
             
 
-        {
+        {   
+            
             (()=>{
                 const displayPosts = []
+                // if(data.length===1){
+                //     displayPosts.push(
+                //         data.map(item=>(
+                //         <tr className="second-row" >
+                //             <td style={{width:"150px"}}>
+                //                     <div className="td-name">
+                //                         <div id={`${item._id}`}><input onChange={getId} className="checky" type="checkbox"/></div>
+                //                         <div >{item.name}</div>
+                //                     </div>
+    
+                //             </td>
+                //             <td>
+                //                     <div className="td-value">
+                //                         <div >{item.designation}</div>
+                //                     </div>
+    
+                //             </td>
+                //             <td>
+                //                     <div className="td-value">
+                //                         <div >{item.company}</div>
+                //                     </div>
+    
+                //             </td>                        
+                //             <td>
+                //                     <div className="td-value">
+                //                         <div >{item.industry}</div>
+                //                     </div>
+    
+                //             </td>                        
+                //             <td>
+                //                     <div className="td-value">
+                //                         <div data-tip={item.email}>{item.email.length>20 ? truncEmail(item.email): item.email}</div>
+            
+                //                     </div>
+    
+                //             </td>                        
+                //             <td>
+                //                     <div className="td-value">
+                //                         <div >{item.phoneNumber}</div>
+                //                     </div>
+    
+                //             </td>
+                //             <td>
+                //                     <div className="td-value">
+                //                         <div >{item.country}</div>
+                //                     </div>
+    
+                //             </td>
+                //             <td>
+                //                     <div className="td-value">
+                //                     <span style={{marginRight:"5px",color:"#0884FF"}}><BiPencil/></span><span style={{color:"#F81D1D"}}><RiDeleteBin5Line/></span>                                </div>
+    
+                //             </td>
+                            
+                //         </tr>
+                //     )))
+                // }
+                //const displayPosts = []
                 //console.log(endPageIndex)
                 if(data.length-1<endPageIndex){
                     endPageIndex = data.length-1;
