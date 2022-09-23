@@ -63,7 +63,7 @@
     align-items: center;
     justify-content: flex-start;
     gap: 11px;
-    padding-left: 12px;
+    padding-left: 15px;
     margin-bottom: 25px;
 }
 
@@ -81,6 +81,7 @@
 
 /* Logout Styling */
 .logout-container{
+    position: absolute;
     padding-left: 12px;
     font-weight: 400;
     font-size: 18px;
@@ -90,8 +91,8 @@
     display: flex;
     align-items: center;
     gap:5px;
-    bottom: 10px;
-    margin-top: 408px;
+    bottom: 35px;
+    /* margin-top: 408px; */
 }
 
 .logout-logo{

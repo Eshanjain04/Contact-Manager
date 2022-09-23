@@ -34,7 +34,7 @@ const DeleteModal = ({isOpenDelete,onCloseDelete,deleteIds}) => {
 },[])
   if(!isOpenDelete)return null;
   return (
-    <div>
+    <div className='overlay'>
           <div className='dropzone-container modalContainer'>
             <div className="dropArea">
                 <div className="upload-icon-container">
