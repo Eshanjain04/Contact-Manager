@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useNavigate } from 'react-router-dom';
 import { decodeToken } from "react-jwt";
 import { useEffect,useState } from 'react';
@@ -11,14 +11,23 @@ import "../CSS/main.css";
 import DeleteModal from './DeleteModal';
 
 const Main = () => {
+    //var deleteContacts = new Set();
     const [data,setData] = useState([])
     const [searchItem,setSearchItem] = useState({})
     const navigate = useNavigate();
     const [isOpenFile,setIsOpenFile] = useState(false);
     const [isOpenDelete,setIsOpenDelete] = useState(false);
+    const [deleteIds , setDeleteIds] = useState(new Set());
+    var searched =[]
     const handleSearchInput = (childData)=>{
-        console.log(childData);
-        setSearchItem(childData)
+        setSearchItem(childData);
+        searched.push(searchItem);
+    }
+
+    const handleDeleteIds = (idSet)=>{
+      for(let i of idSet){
+       setDeleteIds(deleteIds.add(i));
+      }
     }
     
     const populateContacts = async ()=>{
@@ -30,7 +39,6 @@ const Main = () => {
 		})
 
     const contacts = await req.json();
-      console.log(contacts.data);
       setData(contacts.data);
     }
     useEffect(() => {
@@ -49,18 +57,17 @@ const Main = () => {
       }
     }, [navigate])
 
-    const deleteContacts = ["632c0d27a1cc334266e31c36"]
   return (
         <div className="wrapper modal">
             <Sidebar/>
             <div className='main-area left-side'>
-            <Header data={data} parentCallback = {handleSearchInput}/>
-                <FileUploadModal isOpenFile = {isOpenFile} onClose = {()=>setIsOpenFile(false)}/>
-                <DeleteModal isOpenDelete={isOpenDelete} onCloseDelete = {()=>setIsOpenDelete(false)} deleteContacts={deleteContacts}/>
-            <MiddleBar/>
-            {
-            data.length>0?<Pages data ={data}/> :<p>Loading....</p>
-            }
+              <Header data={data} parentCallback = {handleSearchInput}/>
+                  <FileUploadModal isOpenFile = {isOpenFile} onClose = {()=>setIsOpenFile(false)}/>
+                  <DeleteModal isOpenDelete={isOpenDelete} onCloseDelete = {()=>setIsOpenDelete(false)} deleteIds={deleteIds}/>
+              <MiddleBar openDelete={()=>setIsOpenDelete(!isOpenDelete)} openFileModal = {()=>setIsOpenFile(!isOpenFile)}/>
+              {
+              data.length>0?<Pages  data ={searched.length > 0 ? searched : data} getIds = {handleDeleteIds}/> :<p>No Data Available</p>
+              }
         </div>
     </div>
   )

@@ -63,6 +63,7 @@ router.post('/',upload.single("csv"),async(req,res)=>{
 router.delete("/:id",async(req,res)=>{
     try{
         const ids = req.params.id.split(",");
+        console.log(ids);
         const data = await contact.updateOne({userId:req.user.toString()},{$pull:{contactArray:{_id:{$in:ids}}}});
         //const contactData = await contact.find({userId:req.user.toString()},{contactArray:{$elemMatch:{phoneNumber:phoneNumbers}}});
         res.status(200).json({

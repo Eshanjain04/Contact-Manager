@@ -7,7 +7,7 @@ import {AiOutlineDelete} from "react-icons/ai"
 import {MdImportExport} from "react-icons/md"
 import {BiExport} from "react-icons/bi"
 
-function MiddleBar({data}){
+function MiddleBar({openDelete,openFileModal}){
     return(
         <>
             <div className="main-table">
@@ -27,11 +27,11 @@ function MiddleBar({data}){
                     <div className="table-right-icons">
                         <div className="button-div delete-div">
                             <span style={{marginTop:"5px",marginRight:"3px"}}><AiOutlineDelete/></span>
-                            <span style={{marginRight:"3px"}}>Delete</span>
+                            <span onClick={openDelete} style={{marginRight:"3px"}}>Delete</span>
                         </div>
                         <div className="button-div import-div">
                             <span style={{marginTop:"5px",marginRight:"3px"}}><MdImportExport/></span>
-                            <span style={{marginRight:"3px"}}>Import</span>   
+                            <span onClick={openFileModal} style={{marginRight:"3px"}}>Import</span>   
                         </div>
                         <div className="button-div export-div">
                             <span style={{marginTop:"5px",marginRight:"1px"}}><BiExport/></span>

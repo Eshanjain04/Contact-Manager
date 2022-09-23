@@ -5,11 +5,28 @@ import "../CSS/table.css"
 import {BiPencil} from "react-icons/bi"
 import {RiDeleteBin5Line} from "react-icons/ri"
 import {FaSort} from "react-icons/fa"
+import ReactTooltip from 'react-tooltip';
 
-function Pages({data}){
-    const [totalPages,startPageIndex,endPageIndex,
+function Pages({data,getIds}){
+    console.log(data);
+    var [totalPages,startPageIndex,endPageIndex,
         currentPageIndex,//eslint-disable-line
-    displayPage] = usePagination(3,data.length)
+        displayPage] = usePagination(10,data.length)
+        var idSet = new Set();
+
+        const getId = (e)=>{
+            if(e.target.checked){
+                idSet.add(e.target.parentElement.id);
+            }else{
+                idSet.delete(e.target.parentElement.id);
+            }
+            getIds(idSet);
+        }
+
+        const truncEmail = (email)=>{
+            const [name, domain] = email.split('@');
+            return `${name}@${domain[0]}......`
+        }
     return(
         <>
         <div>
@@ -93,79 +110,143 @@ function Pages({data}){
         {
             (()=>{
                 const displayPosts = []
-                console.log(endPageIndex)
-
-                for(let i = startPageIndex;i<=endPageIndex;i++){
-                    console.log("ran"+i+"times")
-                    displayPosts.push(
-                    <tr className="second-row" id={`${data[i]._id}`}>
-                        <td style={{width:"150px"}}>
-                                <div className="td-name">
-                                    <div><input className="checky" type="checkbox"/></div>
-                                    <div >{data[i].name}</div>
-                                </div>
-
-                        </td>
-                        <td>
-                                <div className="td-value">
-                                    <div >{data[i].designation}</div>
-                                </div>
-
-                        </td>
-                        <td>
-                                <div className="td-value">
-                                    <div >{data[i].company}</div>
-                                </div>
-
-                        </td>                        
-                        <td>
-                                <div className="td-value">
-                                    <div >{data[i].industry}</div>
-                                </div>
-
-                        </td>                        
-                        <td>
-                                <div className="td-value">
-                                    <div >{data[i].email}</div>
-                                </div>
-
-                        </td>                        
-                        <td>
-                                <div className="td-value">
-                                    <div >{data[i].phoneNumber}</div>
-                                </div>
-
-                        </td>
-                        <td>
-                                <div className="td-value">
-                                    <div >{data[i].country}</div>
-                                </div>
-
-                        </td>
-                        <td>
-                                <div className="td-value">
-                                <span style={{marginRight:"5px",color:"#0884FF"}}><BiPencil/></span><span style={{color:"#F81D1D"}}><RiDeleteBin5Line/></span>                                </div>
-
-                        </td>
-                        
-
-                            {/* <td ><span><input style={{position:"absolute",left:"2%",marginTop:"5px"}} type="checkbox" /></span ><span >{data[i].name}</span></td>
-                            <td>{data[i].designation}</td>
-                            <td>{data[i].company}</td>
-                            <td>{data[i].industry}</td>
-                            <td>{data[i].email}</td>
-                            <td>{data[i].phoneNumber}</td>
-                            <td>{data[i].country}</td>
-                            <td></td> */}
-                    </tr>
-                    )
+                //console.log(endPageIndex)
+                if(data.length-1<endPageIndex){
+                    endPageIndex = data.length-1;
+                    for(let i = startPageIndex;i<=endPageIndex;i++){
+                        //console.log("ran"+i+"times")
+                        displayPosts.push(
+                        <tr key={data[i]._id} className="second-row" >
+                            <td style={{width:"150px"}}>
+                                    <div className="td-name">
+                                        <div id={`${data[i]._id}`}><input onChange={getId} className="checky" type="checkbox"/></div>
+                                        <div >{data[i].name}</div>
+                                    </div>
+    
+                            </td>
+                            <td>
+                                    <div className="td-value">
+                                        <div >{data[i].designation}</div>
+                                    </div>
+    
+                            </td>
+                            <td>
+                                    <div className="td-value">
+                                        <div >{data[i].company}</div>
+                                    </div>
+    
+                            </td>                        
+                            <td>
+                                    <div className="td-value">
+                                        <div >{data[i].industry}</div>
+                                    </div>
+    
+                            </td>                        
+                            <td>
+                                    <div className="td-value">
+                                        <div data-tip={data[i].email}>{data[i].email.length>20 ? truncEmail(data[i].email): data[i].email}</div>
+            
+                                    </div>
+    
+                            </td>                        
+                            <td>
+                                    <div className="td-value">
+                                        <div >{data[i].phoneNumber}</div>
+                                    </div>
+    
+                            </td>
+                            <td>
+                                    <div className="td-value">
+                                        <div >{data[i].country}</div>
+                                    </div>
+    
+                            </td>
+                            <td>
+                                    <div className="td-value">
+                                    <span style={{marginRight:"5px",color:"#0884FF"}}><BiPencil/></span><span style={{color:"#F81D1D"}}><RiDeleteBin5Line/></span>                                </div>
+    
+                            </td>
+                            
+                        </tr>
+                        )
+                    }
                 }
+                else{
+                    for(let i = startPageIndex;i<=endPageIndex;i++){
+                        //console.log("ran"+i+"times")
+                        displayPosts.push(
+                        <tr key={data[i]._id} className="second-row" >
+                            <td style={{width:"150px"}}>
+                                    <div className="td-name">
+                                        <div id={`${data[i]._id}`}><input onChange={getId} className="checky" type="checkbox"/></div>
+                                        <div >{data[i].name}</div>
+                                    </div>
+    
+                            </td>
+                            <td>
+                                    <div className="td-value">
+                                        <div >{data[i].designation}</div>
+                                    </div>
+    
+                            </td>
+                            <td>
+                                    <div className="td-value">
+                                        <div >{data[i].company}</div>
+                                    </div>
+    
+                            </td>                        
+                            <td>
+                                    <div className="td-value">
+                                        <div >{data[i].industry}</div>
+                                    </div>
+    
+                            </td>                        
+                            <td>
+                                    <div className="td-value">
+                                        <div data-tip={data[i].email}>{data[i].email.length>20 ? truncEmail(data[i].email): data[i].email}</div>
+            
+                                    </div>
+    
+                            </td>                        
+                            <td>
+                                    <div className="td-value">
+                                        <div >{data[i].phoneNumber}</div>
+                                    </div>
+    
+                            </td>
+                            <td>
+                                    <div className="td-value">
+                                        <div >{data[i].country}</div>
+                                    </div>
+    
+                            </td>
+                            <td>
+                                    <div className="td-value">
+                                    <span style={{marginRight:"5px",color:"#0884FF"}}><BiPencil/></span><span style={{color:"#F81D1D"}}><RiDeleteBin5Line/></span>                                </div>
+    
+                            </td>
+                            
+    
+                                {/* <td ><span><input style={{position:"absolute",left:"2%",marginTop:"5px"}} type="checkbox" /></span ><span >{data[i].name}</span></td>
+                                <td>{data[i].designation}</td>
+                                <td>{data[i].company}</td>
+                                <td>{data[i].industry}</td>
+                                <td>{data[i].email}</td>
+                                <td>{data[i].phoneNumber}</td>
+                                <td>{data[i].country}</td>
+                                <td></td> */}
+                        </tr>
+                        )
+                    }
+                }
+               
                 return displayPosts
             })()
         }
         </table>  
 
         <Pagination className="pagination" color="primary" count={totalPages} onChange={(event,value)=>displayPage(value)}/>
+        <ReactTooltip className="tooltip" place="bottom" backgroundColor="#FFFFFF" textColor="#2DA5FC"/>
         </div>
 
         </>

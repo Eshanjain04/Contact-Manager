@@ -4,11 +4,16 @@ import {AiOutlineCheck} from "react-icons/ai";
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-const DeleteModal = ({isOpenDelete,onCloseDelete,deleteContacts}) => {
-  deleteContacts =  deleteContacts.join(",");
+const DeleteModal = ({isOpenDelete,onCloseDelete,deleteIds}) => {
+  let deleteContactsArray = [];
+  for(let i of deleteIds){
+    deleteContactsArray.push(i);
+  }
+  deleteContactsArray =  deleteContactsArray.join(",");
   const [deleteData,setDeleteData] = useState(false);
   const confirmContacts = () =>{
-    const url = `http://localhost:3050/contact/${deleteContacts}`
+    console.log(deleteContactsArray);
+    const url = `http://localhost:3050/contact/${deleteContactsArray}`
     fetch(url,{
       method:"DELETE",
       headers:{
@@ -18,6 +23,7 @@ const DeleteModal = ({isOpenDelete,onCloseDelete,deleteContacts}) => {
     .then((data)=>{
       console.log(data);
       setDeleteData(true);
+      setTimeout(onCloseDelete,1000);
       window.location.reload();
 
     })

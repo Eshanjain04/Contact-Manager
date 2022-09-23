@@ -115,6 +115,7 @@
     background: #FFFFFF;
     box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
     border-radius: 6px;
+    z-index: 10;
   }
   
   .dropdown:empty {

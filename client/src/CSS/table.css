@@ -6,6 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: -1;
 }
 .main-table-2{
     height: 90%;
@@ -206,4 +207,11 @@ th:last-child {
 .button-div:hover{
     cursor: pointer;
     background-color: #dddddd;
+}
+
+.tooltip{
+    width: 200px;
+    height: 20px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
