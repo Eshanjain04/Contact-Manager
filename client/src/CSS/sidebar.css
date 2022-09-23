@@ -103,3 +103,7 @@
     cursor: pointer;
 }
 
+.logout-container:hover{
+    background-color: #94bbe2;
+}
+

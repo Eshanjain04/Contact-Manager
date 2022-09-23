@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../CSS/header.css"; 
 import {AiOutlineSearch} from "react-icons/ai"
 import { useState } from "react";
@@ -6,15 +6,17 @@ import { useState } from "react";
 function Header({data,parentCallback}){
     const [value,setValue] = useState("");
     const onSearch = (searchTerm) => {
-        // our api to fetch the search result
+        console.log(searchTerm);
         setValue(searchTerm);
-        for(let i=0;i<data.length;i++){
-            if(data[i].email===searchTerm){
-                parentCallback(data[i]);
-                return;
-            }
-        }
+        console.log(value);
+        //parentCallback(searchTerm)
       };
+    useEffect(()=>{
+        const onSearch = () => {
+            parentCallback(value);
+        };
+        onSearch();
+    },[value])
 
     return(
         <>
