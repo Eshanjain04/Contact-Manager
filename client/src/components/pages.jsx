@@ -7,6 +7,7 @@ import {RiDeleteBin5Line} from "react-icons/ri"
 import {FaSort} from "react-icons/fa"
 import ReactTooltip from 'react-tooltip';
 
+
 function Pages({data,getIds}){
     console.log(data);
     var [totalPages,startPageIndex,endPageIndex,
@@ -23,6 +24,23 @@ function Pages({data,getIds}){
             getIds(idSet);
         }
 
+        const selectAll = (e) =>{
+            if(e.target.checked){
+                let names = document.getElementsByName("childbox");
+                console.log(names);
+                let len = names.length;
+                for(let i=0;i<len;i++){
+                    names[i].checked = true;
+                }
+            }else{
+                let names = document.getElementsByName("childbox");
+                let len = names.length;
+                for(let i=0;i<len;i++){
+                    names[i].checked = false;
+                }
+            }
+        }
+
         const truncEmail = (email)=>{
             const [name, domain] = email.split('@');
             return `${name}@${domain[0]}......`
@@ -35,7 +53,7 @@ function Pages({data,getIds}){
                 <th style={{width:"150px"}}>
                     <div>
                         <div className="t-name">
-                            <div><input className="checky" type="checkbox"/></div>
+                            <div><input className="checky" type="checkbox" name="allSelect" onChange={selectAll}/></div>
                             <div >Name</div>
                         </div>
                         <div>|</div>
@@ -119,7 +137,7 @@ function Pages({data,getIds}){
                         <tr key={data[i]._id} className="second-row" >
                             <td style={{width:"150px"}}>
                                     <div className="td-name">
-                                        <div id={`${data[i]._id}`}><input onChange={getId} className="checky" type="checkbox"/></div>
+                                        <div id={`${data[i]._id}`}><input onChange={getId} name="childbox" className="checky" type="checkbox"/></div>
                                         <div >{data[i].name}</div>
                                     </div>
     
@@ -144,8 +162,8 @@ function Pages({data,getIds}){
                             </td>                        
                             <td>
                                     <div className="td-value">
-                                        <div data-tip={data[i].email}>{data[i].email.length>20 ? truncEmail(data[i].email): data[i].email}</div>
-            
+                                        <div data-tip={data[i].email.length>20 ? data[i].email:""}>{data[i].email.length>20 ? truncEmail(data[i].email): data[i].email}</div>
+                                        <ReactTooltip className="tooltip" place="bottom" backgroundColor="#FFFFFF" textColor="#2DA5FC"/>
                                     </div>
     
                             </td>                        
@@ -178,7 +196,7 @@ function Pages({data,getIds}){
                         <tr key={data[i]._id} className="second-row" >
                             <td style={{width:"150px"}}>
                                     <div className="td-name">
-                                        <div id={`${data[i]._id}`}><input onChange={getId} className="checky" type="checkbox"/></div>
+                                        <div id={`${data[i]._id}`}><input onChange={getId} name="childbox" className="checky" type="checkbox"/></div>
                                         <div >{data[i].name}</div>
                                     </div>
     
@@ -203,8 +221,8 @@ function Pages({data,getIds}){
                             </td>                        
                             <td>
                                     <div className="td-value">
-                                        <div data-tip={data[i].email}>{data[i].email.length>20 ? truncEmail(data[i].email): data[i].email}</div>
-            
+                                        <div data-tip={data[i].email.length>20 ? data[i].email:""}>{data[i].email.length>20 ? truncEmail(data[i].email): data[i].email}</div>
+                                        <ReactTooltip className="tooltip" place="bottom" backgroundColor="#FFFFFF" textColor="#2DA5FC"/>
                                     </div>
     
                             </td>                        
@@ -236,11 +254,9 @@ function Pages({data,getIds}){
         </table>  
 
         <Pagination className="pagination" color="primary" count={totalPages} onChange={(event,value)=>displayPage(value)}/>
-        <ReactTooltip className="tooltip" place="bottom" backgroundColor="#FFFFFF" textColor="#2DA5FC"/>
         </div>
 
         </>
     )
 }
 export default Pages
-
