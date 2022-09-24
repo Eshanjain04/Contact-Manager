@@ -13,7 +13,7 @@ const FileUploadModal = ({isOpenFile,onClose}) => {
         onDrop : (acceptedFiles) =>{
             console.log(acceptedFiles[0]);
             data.append("csv",acceptedFiles[0]);
-            const url = "http://localhost:3050/contact";
+            const url = "https://raeesh-contact-manager.herokuapp.com/contact";
             fetch(url,{
                 method:"POST",
                 headers:{

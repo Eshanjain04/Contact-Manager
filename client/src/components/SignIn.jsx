@@ -8,7 +8,7 @@ const SignIn = () => {
 
     const loginUser = async (e)=>{
         e.preventDefault();
-        const response = await fetch("http://localhost:3050/login",{
+        const response = await fetch("https://raeesh-contact-manager.herokuapp.com/login",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json",

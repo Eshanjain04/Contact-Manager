@@ -8,7 +8,7 @@ const SignUp = () => {
 
     const loginUser = async (e)=>{
         e.preventDefault();
-        const response = await fetch("http://localhost:3050/register",{
+        const response = await fetch("https://raeesh-contact-manager.herokuapp.com/register",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json",

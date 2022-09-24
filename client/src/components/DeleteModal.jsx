@@ -13,7 +13,7 @@ const DeleteModal = ({isOpenDelete,onCloseDelete,deleteIds}) => {
   const [deleteData,setDeleteData] = useState(false);
   const confirmContacts = () =>{
     console.log(deleteContactsArray);
-    const url = `http://localhost:3050/contact/${deleteContactsArray}`
+    const url = `https://raeesh-contact-manager.herokuapp.com/contact/${deleteContactsArray}`
     fetch(url,{
       method:"DELETE",
       headers:{
