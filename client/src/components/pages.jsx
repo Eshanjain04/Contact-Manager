@@ -11,7 +11,7 @@ function Pages({data,getIds}){
     console.log(data);
     var [totalPages,startPageIndex,endPageIndex,
         currentPageIndex,//eslint-disable-line
-        displayPage] = usePagination(10,data.length)
+        displayPage] = usePagination(9,data.length)
         var idSet = new Set();
 
         const getId = (e)=>{
@@ -111,65 +111,6 @@ function Pages({data,getIds}){
             
             (()=>{
                 const displayPosts = []
-                // if(data.length===1){
-                //     displayPosts.push(
-                //         data.map(item=>(
-                //         <tr className="second-row" >
-                //             <td style={{width:"150px"}}>
-                //                     <div className="td-name">
-                //                         <div id={`${item._id}`}><input onChange={getId} className="checky" type="checkbox"/></div>
-                //                         <div >{item.name}</div>
-                //                     </div>
-    
-                //             </td>
-                //             <td>
-                //                     <div className="td-value">
-                //                         <div >{item.designation}</div>
-                //                     </div>
-    
-                //             </td>
-                //             <td>
-                //                     <div className="td-value">
-                //                         <div >{item.company}</div>
-                //                     </div>
-    
-                //             </td>                        
-                //             <td>
-                //                     <div className="td-value">
-                //                         <div >{item.industry}</div>
-                //                     </div>
-    
-                //             </td>                        
-                //             <td>
-                //                     <div className="td-value">
-                //                         <div data-tip={item.email}>{item.email.length>20 ? truncEmail(item.email): item.email}</div>
-            
-                //                     </div>
-    
-                //             </td>                        
-                //             <td>
-                //                     <div className="td-value">
-                //                         <div >{item.phoneNumber}</div>
-                //                     </div>
-    
-                //             </td>
-                //             <td>
-                //                     <div className="td-value">
-                //                         <div >{item.country}</div>
-                //                     </div>
-    
-                //             </td>
-                //             <td>
-                //                     <div className="td-value">
-                //                     <span style={{marginRight:"5px",color:"#0884FF"}}><BiPencil/></span><span style={{color:"#F81D1D"}}><RiDeleteBin5Line/></span>                                </div>
-    
-                //             </td>
-                            
-                //         </tr>
-                //     )))
-                // }
-                //const displayPosts = []
-                //console.log(endPageIndex)
                 if(data.length-1<endPageIndex){
                     endPageIndex = data.length-1;
                     for(let i = startPageIndex;i<=endPageIndex;i++){
@@ -284,16 +225,6 @@ function Pages({data,getIds}){
                                     <span style={{marginRight:"5px",color:"#0884FF"}}><BiPencil/></span><span style={{color:"#F81D1D"}}><RiDeleteBin5Line/></span>                                </div>
     
                             </td>
-                            
-    
-                                {/* <td ><span><input style={{position:"absolute",left:"2%",marginTop:"5px"}} type="checkbox" /></span ><span >{data[i].name}</span></td>
-                                <td>{data[i].designation}</td>
-                                <td>{data[i].company}</td>
-                                <td>{data[i].industry}</td>
-                                <td>{data[i].email}</td>
-                                <td>{data[i].phoneNumber}</td>
-                                <td>{data[i].country}</td>
-                                <td></td> */}
                         </tr>
                         )
                     }

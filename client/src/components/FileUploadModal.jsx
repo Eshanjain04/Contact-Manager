@@ -36,16 +36,18 @@ const FileUploadModal = ({isOpenFile,onClose}) => {
     },[])
     if(!isOpenFile)return null;
   return (
-    <div className='dropzone-container modalContainer'>
-        <div className="dropArea" {...getRootProps()}>
-            <div className="upload-icon-container">
-                <FaFileImport className='upload-icon'/>
+    <div className='overlay'>
+        <div className='dropzone-container modalContainer'>
+            <div className="dropArea" {...getRootProps()}>
+                <div className="upload-icon-container">
+                    <FaFileImport className='upload-icon'/>
+                </div>
+                <h1>Import files</h1>
+                <input name='csv' type="file" {...getInputProps()}/>
+                <p>{para}</p>
             </div>
-            <h1>Import files</h1>
-            <input name='csv' type="file" {...getInputProps()}/>
-            <p>{para}</p>
+            {para === "CSV File is Uploaded" ? "":<button onClick={onClose}>cancel</button>}
         </div>
-        {para === "CSV File is Uploaded" ? "":<button onClick={onClose}>cancel</button>}
     </div>
   )
 }

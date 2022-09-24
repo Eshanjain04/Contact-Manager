@@ -1,5 +1,5 @@
 .main-table{
-    height: 87%;
+    height:87%;
     width: 100%;
     /* background-color: lightblue; */
     /* background-color:lightgoldenrodyellow ; */
@@ -9,7 +9,7 @@
     z-index: -1;
 }
 .main-table-2{
-    height: 90%;
+    height: 92%;
     width:90%;
     background-color:#FBFBFB ;
     display: flex;
@@ -99,7 +99,7 @@
     border-collapse: collapse;
     top: 24%;
     margin-left: 5%;
-    height: 62%;
+    height: fit-content;
     width: 74.7%;
     position: fixed;
     border: none;
@@ -107,13 +107,14 @@
 }
 th{
     background-color: #B2DFFF;
-    /* border-radius: 10px; */
     height: 10%;
 }
 
 tr{
     border-radius: 10px;
+    height: 46px;
 }
+
 
 
 th > *{
