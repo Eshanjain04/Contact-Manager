@@ -107,7 +107,7 @@
 
   .dropdown {
     position:fixed;
-    width: 28.5%;
+    width: 26.5%;
     top: 55px;
     left: 790px;
     display: flex;
@@ -116,6 +116,7 @@
     box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
     border-radius: 6px;
     z-index: 10;
+    padding-left: 28px;
   }
   
   .dropdown:empty {
