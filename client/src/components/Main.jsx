@@ -48,7 +48,7 @@ const Main = () => {
         setData(searched);
         return;
       }
-      const req = await fetch('https://raeesh-contact-manager.herokuapp.com/contact', {
+      const req = await fetch('https://contact-manager-esh.onrender.com/contact', {
         method:"GET",
 			headers: {
 				'Authorization': localStorage.getItem('token'),
